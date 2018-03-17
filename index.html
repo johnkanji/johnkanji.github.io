@@ -1,1 +1,111 @@
-Hello world
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jkanji</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+
+<body>
+  <section class="hero is-primary is-bold">
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <span class="icon is-medium">
+              <i class="fas fa-child fa-lg"></i>
+            </span>
+            jkanji
+          </a>
+          <div class="navbar-burger" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+          <div class="navbar-end">
+            <a class="navbar-item" id="pubs">
+              Publications?
+            </a>
+            <a class="navbar-item">
+              CV
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          John Kanji
+        </h1>
+        <p class="subtitle">
+          computer graphics student, serial amateurist.
+          <br>
+          <a href="mailto:jkanji@dgp.toronto.edu">jkanji@dgp.toronto.edu</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="notification is-info">
+      <p>
+        Hello, this website is work in progress. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat
+        pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi
+        maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.
+        <br> Suspendisse varius ligula in molestie lacinia. Maecenas varius eget ligula a sagittis. Pellentesque interdum, nisl
+        nec interdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat. Maecenas imperdiet felis
+        nisi, fringilla luctus felis hendrerit sit amet. Aenean vitae gravida diam, finibus dignissim turpis. Sed eget varius
+        ligula, at volutpat tortor.
+        <br> Integer sollicitudin, tortor a mattis commodo, velit urna rhoncus erat, vitae congue lectus dolor consequat libero.
+        Donec leo ligula, maximus et pellentesque sed, gravida a metus. Cras ullamcorper a nunc ac porta. Aliquam ut aliquet
+        lacus, quis faucibus libero. Quisque non semper leo.
+      </p>
+    </div>
+  </section>
+  <div class="modal" id="pubs-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="notification is-danger">
+        <div class="title is-spaced">
+          Not yet :/
+        </div>
+        <div class=" subtitle is-5">
+          maybe soon
+        </div>
+      </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      $ = (s) => { return Array.from(document.querySelectorAll(s)) }
+      // navbar
+      var $navbarBurgers = $('.navbar-burger');
+      if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(function ($el) {
+          $el.addEventListener('click', function () {
+            var target = $el.dataset.target;
+            var $target = document.getElementById(target);
+            $el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+          });
+        });
+      }
+      // modal
+      var pubsModal = $('#pubs-modal')[0];
+      $('#pubs,.modal-background,.modal-close').forEach(el => {
+        el.addEventListener('click', () => {
+          pubsModal.classList.toggle('is-active');
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
