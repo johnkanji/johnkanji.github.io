@@ -22,6 +22,20 @@
     .footer {
       padding: 1rem 1.5rem 1rem;
     }
+
+    #image-modal .modal-content {
+      width: unset;
+      overflow: visible;
+    }
+
+    #image-modal img {
+      max-height: inherit;
+    }
+
+    .image {
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -69,19 +83,34 @@
       </div>
     </section>
     <section class="section">
-      <div class="notification is-info">
-        <p>
-          Hello, this website is work in progress. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat
-          pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi
-          maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.
-          <br> Suspendisse varius ligula in molestie lacinia. Maecenas varius eget ligula a sagittis. Pellentesque interdum,
-          nisl nec interdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat. Maecenas imperdiet
-          felis nisi, fringilla luctus felis hendrerit sit amet. Aenean vitae gravida diam, finibus dignissim turpis. Sed
-          eget varius ligula, at volutpat tortor.
-          <br> Integer sollicitudin, tortor a mattis commodo, velit urna rhoncus erat, vitae congue lectus dolor consequat libero.
-          Donec leo ligula, maximus et pellentesque sed, gravida a metus. Cras ullamcorper a nunc ac porta. Aliquam ut aliquet
-          lacus, quis faucibus libero. Quisque non semper leo.
-        </p>
+      <div class="columns">
+        <div class="column">
+          <div class="notification is-info">
+            <p>
+              Hello, this website is work in progress. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat
+              pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut.
+              Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.
+              <br> Suspendisse varius ligula in molestie lacinia. Maecenas varius eget ligula a sagittis. Pellentesque interdum,
+              nisl nec interdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat. Maecenas
+              imperdiet felis nisi, fringilla luctus felis hendrerit sit amet. Aenean vitae gravida diam, finibus dignissim
+              turpis. Sed eget varius ligula, at volutpat tortor.
+              <br> Integer sollicitudin, tortor a mattis commodo, velit urna rhoncus erat, vitae congue lectus dolor consequat
+              libero. Donec leo ligula, maximus et pellentesque sed, gravida a metus. Cras ullamcorper a nunc ac porta. Aliquam
+              ut aliquet lacus, quis faucibus libero. Quisque non semper leo.
+            </p>
+          </div>
+        </div>
+        <div class="column is-one-quarter">
+          <figure class="image">
+            <img src="https://placeimg.com/640/860/any">
+          </figure>
+          <div class="level">
+            <div class="level-left"></div>
+            <div class="level-right">
+              <span class="tag is-medium">Enjoy this random image!</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -99,8 +128,6 @@
           <a href="https://pages.github.com">Github Pages</a>
         </p>
       </div>
-
-    </div>
     </div>
   </footer>
   <div class="modal" id="pubs-modal">
@@ -131,12 +158,26 @@
     </div>
     <button class="modal-close is-large" aria-label="close"></button>
   </div>
+  <div class="modal" id="image-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <img src="">
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // helpers
       const $ = (s) => Array.from(document.querySelectorAll(s));
-      Array.prototype.on = function(ev, fn) { this.forEach(el => el.addEventListener(ev, (e, el = e.target) => fn(e, el))) };
-
+      Array.prototype.on = function(ev, fn) { this.forEach(el => el.addEventListener(ev, (e) => fn(e, el))) };
+      // images
+      $('.image').forEach(el => {
+        el.classList.toggle('modal-trigger');
+        el.dataset.modalTarget = 'image-modal';
+        el.addEventListener('click', () => {
+          $('#image-modal img')[0].src = el.querySelector('img').src;
+        })
+      });
       // navbar
       $('.navbar-burger').on('click', (ev, el) => {
         el.classList.toggle('is-active');
