@@ -9,7 +9,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'UA-119975936-1');
   </script>
 
@@ -46,6 +45,16 @@
       margin-bottom: 0.5rem;
       cursor: pointer;
     }
+
+    #cv-modal .modal-content {
+      width: 80%;
+      padding: 0rem 1.5rem;
+    }
+    
+    #cv-modal div {
+      height: 100%;
+    }
+
   </style>
 </head>
 
@@ -97,16 +106,7 @@
         <div class="column">
           <div class="notification is-info">
             <p>
-              Hello, this website is work in progress. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat
-              pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut.
-              Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.
-              <br> Suspendisse varius ligula in molestie lacinia. Maecenas varius eget ligula a sagittis. Pellentesque interdum,
-              nisl nec interdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat. Maecenas
-              imperdiet felis nisi, fringilla luctus felis hendrerit sit amet. Aenean vitae gravida diam, finibus dignissim
-              turpis. Sed eget varius ligula, at volutpat tortor.
-              <br> Integer sollicitudin, tortor a mattis commodo, velit urna rhoncus erat, vitae congue lectus dolor consequat
-              libero. Donec leo ligula, maximus et pellentesque sed, gravida a metus. Cras ullamcorper a nunc ac porta. Aliquam
-              ut aliquet lacus, quis faucibus libero. Quisque non semper leo.
+              Hello, I am a computer graphics Masters student studying at the <a href="http://www.dgp.toronto.edu/">Dynamic Graphics Project</a>, University of Toronto where my advisor is <a href="http://diwlevin.webfactional.com/researchdb/">Prof. David Levin</a>. My research interests are a mix of graphics, deep learning, vision, and a little human-computer interaction. I like to work on problems in computer animation, and generally go about that using machine learning. I have also pitched in on projects in physical simulation and sometimes tinker with computational fabrication. Before coming to Toronto I did my Bachelors degree at the University of York, United Kingdom where my undergraduate research project was an FPGA implementation of a gyroscopic sensor-fusion algorithm.
             </p>
           </div>
         </div>
@@ -144,6 +144,7 @@
     <div class="modal-background"></div>
     <div class="modal-content">
       <div class="notification is-danger">
+        <button class="modal-close delete" aria-label="close"></button>
         <div class="title is-spaced">
           Not yet :/
         </div>
@@ -152,28 +153,26 @@
         </div>
       </div>
     </div>
-    <button class="modal-close is-large" aria-label="close"></button>
   </div>
   <div class="modal" id="cv-modal">
     <div class="modal-background"></div>
     <div class="modal-content">
-      <div class="notification is-danger">
-        <div class="title is-spaced">
-          CV!
-        </div>
-        <div class=" subtitle is-5">
-          tbd.
-        </div>
+      <div class="notification is-primary">
+        <button class="modal-close delete" aria-label="close"></button>
+        <object data="johnkanji-cv.pdf" type="application/pdf" width="100%" height="100%">
+          <div class="title">
+            <h1><a href="johnkanji-cv.pdf">CV!</a></h1>
+          </div>
+        </object>
       </div>
     </div>
-    <button class="modal-close is-large" aria-label="close"></button>
   </div>
   <div class="modal" id="image-modal">
     <div class="modal-background"></div>
     <div class="modal-content">
+      <button class="modal-close delete" aria-label="close"></button>
       <img src="">
     </div>
-    <button class="modal-close is-large" aria-label="close"></button>
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
