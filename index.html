@@ -78,8 +78,8 @@
           </div>
           <div class="navbar-menu" id="navMenu">
             <div class="navbar-end">
-              <a class="navbar-item modal-trigger" data-modal-target="pubs-modal">
-                Publications?
+              <a class="navbar-item" href="#publications">
+                Publications
               </a>
               <a class="navbar-item modal-trigger" data-modal-target="cv-modal">
                 CV
@@ -101,28 +101,57 @@
         </div>
       </div>
     </section>
-    <section class="section">
-      <div class="columns">
-        <div class="column">
+    <div class="columns">
+      <div class="column">
+        <section class="section">
           <div class="notification is-info">
             <p>
               Hello, I am a computer graphics Masters student studying at the <a href="http://www.dgp.toronto.edu/">Dynamic Graphics Project</a>, University of Toronto where my advisor is <a href="http://diwlevin.webfactional.com/researchdb/">Prof. David Levin</a>. My research interests are a mix of graphics, deep learning, vision, and a little human-computer interaction. I like to work on problems in computer animation, and generally go about that using machine learning. I have also pitched in on projects in physical simulation and sometimes tinker with computational fabrication. Before coming to Toronto I did my Bachelors degree at the University of York, United Kingdom where my undergraduate research project was an FPGA implementation of a gyroscopic sensor-fusion algorithm.
             </p>
           </div>
-        </div>
-        <div class="column is-one-quarter">
-          <figure class="image">
-            <img src="https://placeimg.com/640/860/any">
-          </figure>
-          <div class="level">
-            <div class="level-left"></div>
-            <div class="level-right">
-              <span class="tag is-medium">Enjoy this random image!</span>
+          <h2 class="is-size-4 has-text-weight-bold">Publications</h2>
+          <br>
+          <article class="media">
+            <figure class="media-left">
+              <p class="image is-128x128">
+                <img src="img/rigid-compression-thumb.jpg">
+              </p>
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <span class="is-size-5 has-text-weight-semibold">Collision-Aware and Online Compression of Rigid Body Simulations via Integrated Error Minimization</span>
+                  <br>
+                  <span class="is-italic">T. Jeruzalski, <strong>J. Kanji</strong>, A. Jacobson, D.I.W. Levin</span>
+                  <br>
+                  <span>Symposium on Computer Animation 2018</span>
+                </p>
+                <nav class="level is-mobile">
+                  <div class="level-left">
+                    <a class="level-item" href="http://www.dgp.toronto.edu/projects/rigid-body-compression/collision-aware-and-online-compression-of-rigid-body-simulations-via-integrated-error-minimization-sca-2018-jeruzalski-et-al.pdf">
+                      [Paper]
+                    </a>
+                    <a class="level-item" href="http://www.dgp.toronto.edu/projects/rigid-body-compression/">
+                      [Project Page]
+                    </a>
+                    <a class="level-item" href="https://www.youtube.com/watch?v=cQhb7C_wXx8">
+                      [Video]
+                    </a>
+                  </div>
+                </nav>
+              </div>
             </div>
-          </div>
-        </div>
+          </article>
+        </section>
       </div>
-    </section>
+      <div class="column is-one-quarter">
+        <section class="section">
+          <figure class="image">
+            <img src="img/johnkanji.png">
+          </figure>
+        </section>
+      </div>
+    </div>
   </main>
   <footer class="footer is-size-7">
     <div class="level">
@@ -140,20 +169,6 @@
       </div>
     </div>
   </footer>
-  <div class="modal" id="pubs-modal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="notification is-danger">
-        <button class="modal-close delete" aria-label="close"></button>
-        <div class="title is-spaced">
-          Not yet :/
-        </div>
-        <div class=" subtitle is-5">
-          maybe soon
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="modal" id="cv-modal">
     <div class="modal-background"></div>
     <div class="modal-content">
